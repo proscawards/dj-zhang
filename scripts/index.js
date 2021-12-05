@@ -47,7 +47,7 @@ function restartDyno(){
         getState();
         const Toast = Swal.mixin({
             toast: true,
-            position: 'top-right',
+            position: 'bottom-left',
             showConfirmButton: false,
             timer: 3000,
             timerProgressBar: true,
@@ -58,7 +58,7 @@ function restartDyno(){
           })
           
           Toast.fire({
-            html: "Ah Zhang is waking up!"
+            text: "Ah Zhang is waking up!"
           })
     });
 }
@@ -73,7 +73,7 @@ function stopDyno(){
         getState();
         const Toast = Swal.mixin({
             toast: true,
-            position: 'top-right',
+            position: 'bottom-left',
             showConfirmButton: false,
             timer: 3000,
             timerProgressBar: true,
@@ -84,7 +84,7 @@ function stopDyno(){
           })
           
           Toast.fire({
-            html: "Ah Zhang is going to sleep!"
+            text: "Ah Zhang is going to sleep!"
           })
     });
 }
@@ -107,7 +107,7 @@ $("#yz").click(function(e){
 
     const Toast = Swal.mixin({
         toast: true,
-        position: 'top-right',
+        position: 'bottom-left',
         showConfirmButton: false,
         timer: 1000,
         timerProgressBar: true,
@@ -118,6 +118,6 @@ $("#yz").click(function(e){
       })
       
       Toast.fire({
-        html: `Refreshing...`
+        text: `Refreshing...`
       })
 })

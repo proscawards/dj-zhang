@@ -1,9 +1,16 @@
 <?php
+    require "vendor/autoload.php";
+    $error = "";
+    session_start();
     if (isset($_POST['submit'])) {
         $secret = $_POST['secret'];
-        if (md5($secret) == "151b44199d3be8497e9847ffe0762627"){
+        if (md5($secret) == getenv("SECRET_KEY")){
+            $error = "";
             $_SESSION['success'] = true;
             header("Location: home.php");
+        }
+        else{
+            $error = "Invalid secret key!";
         }
     }
 ?>
@@ -27,10 +34,13 @@
     <body>
         <div class="row col-md-12" id="login">
             <div class="col-md-3 form-group">
-                <label for="secret">Secret</label>
-                <input type="text" class="form-control" id="secret" name="secret" aria-describedby="secret" placeholder="Enter secret key">
-                <small id="secretHelp" class="form-text text-muted">Secret can be obtained from Qiqi.</small>
-                <button type="button" class="btn btn-primary" id="submit" name="submit">Submit</button>
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                    <label for="secret">Secret</label>
+                    <input type="password" class="form-control" id="secret" name="secret" aria-describedby="secret" placeholder="Enter secret key" required>
+                    <small id="secretHelp" class="form-text text-muted">Secret can be obtained from Qiqi.</small>
+                    <span id="error" name="error"><?php echo $error; ?></span><br/>
+                    <button type="submit" class="btn btn-primary" id="submit" name="submit">Submit</button>
+                </form>
             </div>
         </div>
     </body>

@@ -1,4 +1,10 @@
 {
+    "graham-campbell/result-type": {
+        "version": "v1.0.4"
+    },
+    "phpoption/phpoption": {
+        "version": "1.8.1"
+    },
     "symfony/flex": {
         "version": "1.0",
         "recipe": {
@@ -10,5 +16,17 @@
         "files": [
             "./.env"
         ]
+    },
+    "symfony/polyfill-ctype": {
+        "version": "v1.23.0"
+    },
+    "symfony/polyfill-mbstring": {
+        "version": "v1.23.1"
+    },
+    "symfony/polyfill-php80": {
+        "version": "v1.23.1"
+    },
+    "vlucas/phpdotenv": {
+        "version": "v5.4.0"
     }
 }

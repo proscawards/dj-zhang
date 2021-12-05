@@ -1,8 +1,10 @@
 <?php
-    if (!isset($_POST['success'])) {
+    session_start();
+    if (!isset($_SESSION['success'])) {
         header("Location: index.php");
     }
     if (isset($_POST['logout'])) {
+        session_destroy();
         unset($_SESSION['success']);
         header("Location: index.php");
     }
@@ -28,7 +30,9 @@
     <body>
         <div class="row col-md-12" id="main">
             <div id="logoutDiv">
-                <button type="button" class="btn btn-info" id="logout" name="logout"><i class="fas fa-sign-out-alt"></i></button>
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                    <button type="submit" class="btn btn-info" id="logout" name="logout"><i class="fas fa-sign-out-alt"></i></button>
+                </form>
             </div>
             <div class="col-md-12" id="icon">
                 <img id="yz" src="images/yz.jpg"/>
