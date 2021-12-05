@@ -1,0 +1,63 @@
+@mixin center(){
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+body{
+    font-family: 'Roboto Condensed', sans-serif;
+    @include center();
+    background-color: #fcfcfc;
+}
+
+#main{
+    @include center();
+    
+    &>#icon>img{
+        border-radius: 500px;
+        width: 30%;
+        box-shadow: 0px 0px 10px rgba(0,0,0,.3);
+        transition: .3s;
+        cursor: pointer;
+    }
+
+    &>#icon>img:hover{
+        opacity: .8;
+    }
+
+    &>#info>#state{
+        margin-top: .5em;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    &>#actions{
+        display: flex;
+        flex-direction: column;
+    }
+
+    &>#actions>button{
+        margin: .1em;
+        transition: .3s;
+    }
+
+    &>#logoutDiv{
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin: .5em;
+
+        &>button{
+            border-radius: 100px;
+            padding: 20px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    }
+}
+
+#login{
+    @include center();
+    flex-direction: column;
+}
