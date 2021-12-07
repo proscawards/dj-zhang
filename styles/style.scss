@@ -21,6 +21,21 @@ img{
 
 #main{
     @include center();
+
+    
+    &>#throbber{
+        @include center();
+        position: absolute;
+        z-index: 10;
+        top: 40%;
+        
+        &>.spinner-grow{
+            @include center();
+            background: none;
+            transform: scale(5);
+        }
+
+    }
     
     &>#icon>img{
         border-radius: 500px;
@@ -76,4 +91,8 @@ img{
         opacity: .8;
         font-size: 13px;
     }
+}
+
+.content{
+    display: none;
 }

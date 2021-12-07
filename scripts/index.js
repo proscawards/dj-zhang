@@ -1,6 +1,16 @@
+let currState = "up";
+
 $(document).ready(function() {
-    getState();
+  getState();
+  loadingThrobber();
 });
+
+function loadingThrobber(){
+  setTimeout(() => {
+    $(".content").fadeIn();
+    $("#throbber").fadeOut(0);
+  }, 3000);
+}
 
 function getState(){
     fetch('https://dj-zhang-backend.herokuapp.com/info', {
@@ -11,6 +21,7 @@ function getState(){
       }).then((res) => res.json()
       ).then((data) => {
         var state = data.state;
+        currState = state;
         switch (state){
             case "up":
                 $("#state").text("🎧 DJ Ah Zhang is now online!");
@@ -97,9 +108,10 @@ $("#stop").click(function(e){
 $("#restart").click(function(e){
     e.preventDefault();
     restartDyno();
-    setTimeout(function () {
-        getState();
-    }, 5000);
+    var loading = setInterval(() => {
+      getState() 
+      if (currState == "up"){ clearInterval(loading) }
+    }, 2000);
 });
 
 $("#yz").click(function(e){
@@ -120,4 +132,6 @@ $("#yz").click(function(e){
       Toast.fire({
         text: `Refreshing...`
       })
+
+      getState();
 })

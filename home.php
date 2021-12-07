@@ -29,23 +29,29 @@
     </head>
     <body>
         <div class="row col-md-12" id="main">
-            <div id="logoutDiv">
+            <div class="col-md-12" id="throbber">
+                <div class="d-flex justify-content-center spinner-grow" role="status">
+                    <img src="images/twitch_e.png" />
+
+                </div>
+            </div>
+            <div class="content" id="logoutDiv">
                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                     <button type="submit" class="btn btn-info" id="logout" name="logout"><i class="fas fa-sign-out-alt"></i></button>
                 </form>
             </div>
-            <div class="col-md-12" id="icon">
+            <div class="col-md-12 content" id="icon">
                 <img id="yz" src="images/yz.jpg"/>
             </div>
-            <div class="col-md-12" id="info">
+            <div class="col-md-12 content" id="info">
                 <span id="state"></span>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-12 content">
                 <span>What do you want DJ Ah Zhang to do?</span>
             </div>
-            <div class="col-md-3" id="actions">
-                <button type="button" class="btn btn-danger actionBtn" id="stop">Go to sleep, Ah Zhang :)</button>
-                <button type="button" class="btn btn-success actionBtn" id="restart">Wake up, Ah Zhang!!!</button>
+            <div class="col-md-3 content" id="actions">
+                <button type="button" class="btn btn-danger content" id="stop">Go to sleep, Ah Zhang :)</button>
+                <button type="button" class="btn btn-success content" id="restart">Wake up, Ah Zhang!!!</button>
             </div>
         </div>
     </body>

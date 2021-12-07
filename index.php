@@ -1,10 +1,15 @@
 <?php
     require "vendor/autoload.php";
+    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+    $dotenv->load();
     $error = "";
     session_start();
+    if (isset($_SESSION['success'])) {
+        header("Location: home.php");
+    }
     if (isset($_POST['submit'])) {
         $secret = $_POST['secret'];
-        if (md5($secret) == getenv("SECRET_KEY")){
+        if (md5($secret) == getenv("SECRET_KEY") || md5($secret) == $_ENV['SECRET_KEY']){
             $error = "";
             $_SESSION['success'] = true;
             header("Location: home.php");
